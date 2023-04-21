@@ -1,0 +1,40 @@
+.menu {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  padding-top: 110px;
+  padding-left: 23px;
+  height: 100%;
+  color: var(--main-light);
+  background-color: var(--main-black);
+
+  &__svg-close {
+    position: absolute;
+    top: 18px;
+    right: 13px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+  }
+
+  &__item {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: uppercase;
+
+    color: var(--main-light);
+  }
+  &--active {
+    color: var(--main-yellow);
+  }
+}
+
+.invisible {
+    display: none;
+}

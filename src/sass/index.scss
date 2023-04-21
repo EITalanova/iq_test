@@ -1,2 +1,9 @@
 @import './common';
-@import './example';
+
+@import './utils';
+@import './base';
+
+@import './components/header';
+@import './components/burger-menu';
+@import './components/main_page';
+@import './components/footer';

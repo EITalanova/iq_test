@@ -1,0 +1,193 @@
+.main-page {
+  &__hero {
+    min-height: 568px;
+    // position: relative;
+    // top: 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 73px 17px 0 17px;
+
+    background-image: url(../images/rain_brain.png);
+    background-size: cover;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    color: var(--main-light);
+    &--yellow {
+      color: var(--main-yellow);
+    }
+  }
+
+  &__title {
+    margin-top: 13px;
+    margin-bottom: 150px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: var(--main-yellow);
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 11px;
+    margin-top: 11px;
+  }
+
+  &__btn-text {
+    margin-top: 3px;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 11px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: var(--main-light);
+  }
+
+  &__discription {
+    position: relative;
+    padding: 83px 36px 28px 36px;
+    height: 339px;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+
+    text-align: center;
+    letter-spacing: 0.05em;
+
+    color: var(--main-light);
+
+    background: radial-gradient(
+        84.34% 50.29% at 48.75% 49.71%,
+        #2950c2 0%,
+        rgba(38, 91, 199, 0.96) 40.62%,
+        rgba(39, 98, 187, 0) 85.42%
+      ),
+      url(../images/main-page-discr.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &__quotation-mark {
+    position: absolute;
+    left: 24px;
+    top: 43px;
+    &--reverse {
+      position: absolute;
+      right: 29px;
+      bottom: 33px;
+      z-index: 1;
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 11px;
+    background-color: var(--main-light);
+  }
+
+  &__details-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+
+    &--upper {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    &--weight {
+      font-weight: 700;
+    }
+    &--yellow {
+      color: var(--main-yellow);
+      font-weight: 700;
+    }
+
+    &--white {
+      color: var(--main-light);
+    }
+  }
+  &__text-box {
+    width: 100%;
+
+    padding: 30px 15px;
+    margin-top: 14px;
+    margin-bottom: 33px;
+
+    background: rgba(243, 243, 242, 0.8);
+    border-radius: 20px;
+    z-index: 1;
+  }
+
+  &__img-brain {
+    margin-top: 23px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: -9px;
+  }
+
+  &__brief {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 56px 12px 86px 12px;
+    background-image: url(../images/rain_sky.png);
+
+    &-img1 {
+      position: absolute;
+      left: 0;
+      bottom: 32px;
+    }
+
+    &-img2 {
+      position: absolute;
+      top: 66px;
+      right: 0;
+    }
+  }
+}
+
+.btn {
+  width: 189px;
+  height: 41px;
+  margin-bottom: 22px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--main-yellow);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+
+  margin-right: auto;
+  margin-left: auto;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--btn-black);
+
+  &--black {
+    border: var(--main-light) 1px solid;
+    color: var(--main-light);
+    background-color: transparent;
+  }
+}

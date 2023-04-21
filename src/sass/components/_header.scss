@@ -1,0 +1,16 @@
+.header {
+  &__container {
+    position: fixed;
+    height: 46px;
+    width: 100%;
+    z-index: 1;
+
+    background-color: var(--main-grey);
+  }
+
+  &__btn {
+    position: absolute;
+    top: 17px;
+    left: 15px;
+  }
+}
