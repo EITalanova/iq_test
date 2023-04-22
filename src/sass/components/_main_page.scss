@@ -8,10 +8,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 73px 17px 0 17px;
+    padding: 27px 17px 0 17px;
 
     background-image: url(../images/rain_brain.png);
-    background-size: cover;
+    background-size: contain;
   }
 
   &__text {
@@ -168,26 +168,5 @@
   }
 }
 
-.btn {
-  width: 189px;
-  height: 41px;
-  margin-bottom: 22px;
-  border: none;
-  border-radius: 20px;
-  background-color: var(--main-yellow);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 18px;
 
-  margin-right: auto;
-  margin-left: auto;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--btn-black);
 
-  &--black {
-    border: var(--main-light) 1px solid;
-    color: var(--main-light);
-    background-color: transparent;
-  }
-}

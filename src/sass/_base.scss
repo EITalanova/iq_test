@@ -80,6 +80,40 @@ body {
   // }
 }
 
+.btn {
+  width: 189px;
+  height: 41px;
+  margin-bottom: 22px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--main-yellow);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+
+  margin-right: auto;
+  margin-left: auto;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--btn-black);
+
+  &--black {
+    border: var(--main-light) 1px solid;
+    color: var(--main-light);
+    background-color: transparent;
+  }
+
+  &--no-active {
+    background-color: #dadada;
+    color: rgba(142, 142, 142, 1);
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    // margin-top: auto;
+    // margin-bottom: 0;
+    justify-content: end;
+  }
+}
+
 // main {
 //     flex: 1 1 auto;
 // }

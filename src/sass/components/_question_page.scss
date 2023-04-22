@@ -1,0 +1,82 @@
+.question {
+  &__container {
+    position: relative;
+    min-height: 568px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-top: 17px;
+    padding-bottom: 25px;
+
+    background-image: linear-gradient(
+        rgba(13, 12, 17, 0.728),
+        rgba(13, 12, 17, 0.728)
+      ),
+      url(../images/rain_sky.png);
+    background-size: cover;
+  }
+
+  &__progress {
+    width: 260px;
+    height: 11px;
+    justify-content: start;
+    background-color: rgba(242, 243, 243, 1);
+    border: 0;
+    border-radius: 9px;
+  }
+
+  &__box {
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--main-light);
+  }
+
+  &__text {
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 38px;
+  }
+}
+
+.answer {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    gap: 8px;
+    font-size: 18px;
+    line-height: 58px;
+  }
+
+  &__ell {
+    display: flex;
+    align-items: center;
+    padding-left: 35px;
+    gap: 39px;
+    height: 50px;
+    background-color: rgba(242, 243, 243, 0.15);
+
+    font-style: normal;
+    font-weight: 400;
+
+    letter-spacing: 0.05em;
+  }
+
+  &__radioBtn {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(242, 243, 243);
+    border-radius: 50%;
+
+    background-color: transparent;
+  }
+
+  // &__text {
+
+  // }
+}
