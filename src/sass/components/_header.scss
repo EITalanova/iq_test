@@ -1,6 +1,6 @@
 .header {
   &__container {
-    position: relative;
+    position: absolute;
     display: flex;
     // top: 0;
     // left: 0;
@@ -17,6 +17,7 @@
     position: absolute;
     top: 17px;
     left: 15px;
+    // height: 16px;
   }
 
   &__img {

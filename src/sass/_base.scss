@@ -93,6 +93,7 @@ body {
 
   margin-right: auto;
   margin-left: auto;
+  font-family: 'Merriweather', serif;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--btn-black);
@@ -112,6 +113,10 @@ body {
     // margin-bottom: 0;
     justify-content: end;
   }
+
+&--next {
+  margin: 0;
+}
 }
 
 // main {

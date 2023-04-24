@@ -8,10 +8,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 27px 17px 0 17px;
+    padding: 73px 17px 0 17px;
 
     background-image: url(../images/rain_brain.png);
-    background-size: contain;
+    background-size: cover;
   }
 
   &__text {
@@ -58,12 +58,13 @@
 
   &__discription {
     position: relative;
-    padding: 83px 36px 28px 36px;
+    padding: 45px 36px 28px 36px;
     height: 339px;
 
+    font-family: 'Yeseva One', serif;
     font-weight: 400;
     font-size: 18px;
-    line-height: 23px;
+    line-height: 25px;
 
     text-align: center;
     letter-spacing: 0.05em;
@@ -105,6 +106,7 @@
   }
 
   &__details-text {
+    font-family: 'Merriweather', serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -167,6 +169,3 @@
     }
   }
 }
-
-
-
