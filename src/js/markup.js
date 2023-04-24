@@ -1,3 +1,5 @@
+import blue_brain from '../images/blue_brain.png'
+
 export const renderQuestionPage = `
 <div class="question__container">
     <progress class="question__progress" max="100" value="70"></progress>
@@ -26,12 +28,9 @@ export const renderQuestionPage = `
    
 </div>`;
 
-export const renderQuestionHeader = `  <div class="header__container">
-    <button class="header__btn" type="button">
-      <svg width="24" height="16">
-        <use href="./images/sprite.svg#icon-menu"></use>
-      </svg>
-    </button>
-    <img src="./images/blue_brain.png" alt="brain" class="header__img" width="48" height="47">
-    <p class="header__title">тест на определение IQ</p>
-  </div>`;
+export const renderQuestionHeader = `  <div class="header__box">
+  <img src="${blue_brain}" alt="blue_brain" class="header__pic" width="48" height="47">
+  <p class="header__title">тест на определение IQ
+
+</p>
+</div>`;

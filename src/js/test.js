@@ -2,6 +2,7 @@ import { renderQuestionPage, renderQuestionHeader } from './markup';
 import qu_people from '../images/qu_people.png';
 import qu_snack from '../images/qu_snack.png';
 import qu_star from '../images/qu_star.png';
+import loader from '../images/loader.png'
 
 const refs = {
   header: document.querySelector('.header'),
@@ -17,6 +18,12 @@ class Test {
     this.score = 0;
     this.currentQuestion = 0;
   }
+
+  Click(index) {
+    let value = this.questions[this.currentQuestion].Click(index);
+    console.log(value);
+    this.score += value;
+  }
 }
 
 class Question {
@@ -27,7 +34,8 @@ class Question {
     this.answers = answers;
   }
 
-  choiceAnswer(index) {
+  Click(index) {
+    console.log(this.answers[index]);
     return this.answers[index].value;
   }
 }
@@ -167,8 +175,10 @@ startTestBtns.forEach(function (ell, i) {
   ell.addEventListener('click', renderPage);
 });
 
+
+
 function renderPage() {
-  refs.header.innerHTML = renderQuestionHeader;
+  refs.header.insertAdjacentHTML('afterbegin', renderQuestionHeader);
   refs.main.innerHTML = renderQuestionPage;
   nextQuestion();
   const nextQuestionBtn = document.querySelector('.btn');
@@ -176,9 +186,9 @@ function renderPage() {
 }
 
 function nextQuestion() {
-  console.log(test.currentQuestion);
-  console.log(test.questions.length);
-  console.log(test.questions[test.currentQuestion].type);
+  // console.log(test.currentQuestion);
+  // console.log(test.questions.length);
+  // console.log(test.questions[test.currentQuestion].type);
 
   if (test.currentQuestion < test.questions.length) {
     const question = document.querySelector('.question');
@@ -197,7 +207,6 @@ function nextQuestion() {
         test.questions[test.currentQuestion].text
       }</p>`;
     }
-    // answers.insertAdjacentHTML('beforebegin', `<span class="line"></span>`);
     answers.innerHTML = '';
 
     for (
@@ -227,7 +236,7 @@ function nextQuestion() {
             'beforeend',
             `<li class="answer__colorEll" style="background:#${
               test.questions[test.currentQuestion].answers[i].text
-            }"></li>`
+            }"><button class="btn--answer"type="button"></button></li>`
           );
           break;
 
@@ -265,25 +274,52 @@ function nextQuestion() {
     //       e.target.classList.add('answer__ell--active');
     //     }
 
-    const answersEll = document.querySelectorAll('.answer__ell');
-    for (let i = 0; i < answersEll.length; i += 1) {
-      answersEll[i].addEventListener('click', function (e) {
-        Click(e.target.getAttribute('index'));
-      });
-      // answersEll[i].firstChild.classList.add('answer__ell--active');
-    }
+    // startTestBtns = Array.prototype.slice.call(refs.startTestBtn);
 
-    function Click(index) {
-      console.log(index);
-      answersEll[index].firstChild.classList.add('answer__ell--active');
-    }
-    //     const answersArr = Array.prototype.slice.call(answersEll);
+    // startTestBtns.forEach(function (ell, i) {
+    //   ell.addEventListener('click', renderPage);
+    // });
 
-    // answersArr.forEach(function (ell, i) {
-    //   ell.addEventListener('click', changeAnswer);
-    //   })
-    //  вывести результат
+    const answersEll = document.querySelectorAll('.answer__colorEll');
+    answerTestBtns = Array.prototype.slice.call(answersEll);
+
+    answerTestBtns.forEach(function (ell, i) {
+      ell.addEventListener('click', function (e) { Click(e.target.getAttribute("index")); });
+    });
+
+    // for (let i = 0; i < answersEll.length; i += 1) {
+    //   answersEll[i].addEventListener('click', rrrrr);
+
+    // }
+  } else {
+    refs.main.innerHTML = `<p class="loading__title">Обработка результатов</p>
+<img scr=${loader} alt="loader" width="65" heigth="68">
+<p class="loading_text">Определение стиля мышления...........
+.......................................................</p>`
   }
+
+  // answersEll[i].firstChild.classList.add('answer__ell--active');
+
+  function Click(index) {
+   
+    let correct = test.Click(index);
+     console.log(correct);
+
+    // let btns = document.querySelectorAll('.btn--answer');
+    // for (let i = 0; i < btns.length; i++) {
+    //   btns[i].setAttribute('disabled', 'disabled');
+    // }
+    // btns[index].classList.add('answer__ell--active');
+    // console.log("e.target.index");
+    // answersEll[index].classList.add('answer__ell--active');
+  }
+  //     const answersArr = Array.prototype.slice.call(answersEll);
+
+  // answersArr.forEach(function (ell, i) {
+  //   ell.addEventListener('click', changeAnswer);
+  //   })
+  //  вывести результат
+  // }
 }
 
 // function changeAnswer(e) {

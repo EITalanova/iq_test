@@ -1,23 +1,22 @@
 .header {
-  &__container {
-    position: absolute;
-    display: flex;
-    // top: 0;
-    // left: 0;
-    // justify-content: center;
-    align-items: center;
-    height: 46px;
-    width: 100%;
-    z-index: 1;
+  // &__container {
+  position: absolute;
+  display: flex;
+  top: 0;
 
-    background-color: var(--main-grey);
-  }
+  align-items: center;
+  height: 46px;
+  width: 100%;
+  z-index: 1;
+
+  background-color: var(--main-grey);
+  // }
 
   &__btn {
     position: absolute;
     top: 17px;
     left: 15px;
-    // height: 16px;
+    z-index: 99;
   }
 
   &__img {
@@ -25,7 +24,6 @@
   }
 
   &__title {
-    
     margin-left: 9px;
     font-weight: 400;
     font-size: 12px;
@@ -33,7 +31,29 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
 
-
     color: var(--bright-yellow);
+  }
+
+  &__box {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding-right: 30px;
+    padding-left: 48px;
+    align-items: center;
+    z-index: 24;
+    position: relative;
+  }
+
+  &__title {
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    color: #ffc700;
   }
 }
