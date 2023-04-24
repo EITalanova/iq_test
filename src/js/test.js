@@ -2,7 +2,7 @@ import { renderQuestionPage, renderQuestionHeader } from './markup';
 import qu_people from '../images/qu_people.png';
 import qu_snack from '../images/qu_snack.png';
 import qu_star from '../images/qu_star.png';
-import loader from '../images/loader.png'
+import loader from '../images/loader.png';
 
 const refs = {
   header: document.querySelector('.header'),
@@ -175,8 +175,6 @@ startTestBtns.forEach(function (ell, i) {
   ell.addEventListener('click', renderPage);
 });
 
-
-
 function renderPage() {
   refs.header.insertAdjacentHTML('afterbegin', renderQuestionHeader);
   refs.main.innerHTML = renderQuestionPage;
@@ -189,9 +187,10 @@ function nextQuestion() {
   // console.log(test.currentQuestion);
   // console.log(test.questions.length);
   // console.log(test.questions[test.currentQuestion].type);
-
+const questionContainer = document.querySelector('.question__container');
   if (test.currentQuestion < test.questions.length) {
     const question = document.querySelector('.question');
+    
     const answers = document.querySelector('.answer__list');
     const line = document.querySelector('.line');
 
@@ -284,7 +283,9 @@ function nextQuestion() {
     answerTestBtns = Array.prototype.slice.call(answersEll);
 
     answerTestBtns.forEach(function (ell, i) {
-      ell.addEventListener('click', function (e) { Click(e.target.getAttribute("index")); });
+      ell.addEventListener('click', function (e) {
+        Click(e.target.getAttribute('index'));
+      });
     });
 
     // for (let i = 0; i < answersEll.length; i += 1) {
@@ -292,18 +293,17 @@ function nextQuestion() {
 
     // }
   } else {
-    refs.main.innerHTML = `<p class="loading__title">Обработка результатов</p>
-<img scr=${loader} alt="loader" width="65" heigth="68">
+    questionContainer.innerHTML = `<div class="loading__container"><p class="loading__title">Обработка результатов</p>
+    <img class="loading__img" src=${loader} alt="loader" width="65" heigth="68">
 <p class="loading_text">Определение стиля мышления...........
-.......................................................</p>`
+............................................................</p></div>`;
   }
 
   // answersEll[i].firstChild.classList.add('answer__ell--active');
 
   function Click(index) {
-   
     let correct = test.Click(index);
-     console.log(correct);
+    console.log(correct);
 
     // let btns = document.querySelectorAll('.btn--answer');
     // for (let i = 0; i < btns.length; i++) {

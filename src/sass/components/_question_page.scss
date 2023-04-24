@@ -147,3 +147,30 @@
     opacity: 0.15;
   }
 }
+
+.loading{
+&__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 33px;
+margin-top: 10%;
+margin-bottom: auto;
+}
+
+&__img {
+animation: rotate 2s linear 0s infinite;
+animation-direction: reverse;
+}
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}

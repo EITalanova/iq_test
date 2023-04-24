@@ -1,12 +1,18 @@
 import blue_brain from '../images/blue_brain.png'
+import loader from '../images/loader.png';
+import call from '../images/sprite.svg#icon-call';
+
 
 export const renderQuestionPage = `
 <div class="question__container">
+
     <progress class="question__progress" max="100" value="70"></progress>
 
  
         <div class="question">
+  
             <p class="question__text"></p>
+            
         </div>
        <span class="line"></span>
         <ul class="answer__list">
@@ -34,3 +40,5 @@ export const renderQuestionHeader = `  <div class="header__box">
 
 </p>
 </div>`;
+
+export const renderResult = ``
