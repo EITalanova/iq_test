@@ -33,14 +33,23 @@
     color: var(--main-light);
   }
 
-  &__progress {
-    width: 260px;
-    height: 11px;
-    justify-content: start;
-    background-color: rgba(242, 243, 243, 1);
-    border: 0;
-    border-radius: 9px;
-  }
+  // &__progress
+  //   progress::-webkit-progress-bar {
+  //     // {
+  //         width: 260px;
+  //         height: 11px;
+  //         -webkit-box-pack: start;
+  //         -ms-flex-pack: start;
+  //         justify-content: start;
+  //         background-color: rgba(242, 243, 243, 1);
+  //         color: #eb1b00;
+  //         border: 0;
+  //         border-radius: 9px;
+  //       }
+  //                progress::-webkit-progress-value {
+  //                  background: #eb1b00;
+  //                }
+  //   // }
 
   &__text {
     font-size: 20px;
@@ -277,7 +286,6 @@
     letter-spacing: 0.05em;
     color: var(--main-light);
   }
-  
 }
 
 .card {
@@ -293,4 +301,86 @@
   border-radius: 5px;
   border: none;
   width: 100%;
+}
+
+//  progress::-webkit-progress-bar {
+//     // {
+//     width: 260px;
+//     height: 11px;
+//     -webkit-box-pack: start;
+//     -ms-flex-pack: start;
+//     justify-content: start;
+//     background-color: rgba(242, 243, 243, 1);
+// background: #eb1b00;
+//     color: #eb1b00;
+//     border: 0;
+//     border-radius: 9px;
+//   }
+
+//   progress::-webkit-progress-value {
+//     background: #eb1b00;
+//   }
+// progress {
+//   color: aqua;
+//     background: #eb1b00;
+// }
+
+// progress::-webkit-progress-bar {
+//   background: #fac;
+// }
+
+// progress::-webkit-progress-bar {
+//   min-width: 260px;
+//     height: 11px;
+//     -webkit-box-pack: start;
+//     -ms-flex-pack: start;
+//     justify-content: start;
+//     background-color: rgba(242, 243, 243, 1);
+//     // background: #eb1b00;
+//     // color: #eb1b00;
+//     border: 0;
+//     border-radius: 9px;
+//   }
+// }
+
+// progress::-webkit-progress-value {
+//   color: aqua;
+//   background: #eb1b00;
+// }
+
+// }
+
+progress {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background-size: auto;
+}
+
+progress {
+  background: rgb(152, 154, 154);
+  border-radius: 9px;
+  min-width: 260px;
+  height: 11px;
+}
+
+progress::-webkit-progress-bar {
+  background: rgb(152, 154, 154);
+  border-radius: 9px;
+}
+
+progress {
+  color: var(--main-green);
+  border-radius: 9px;
+}
+
+progress::-moz-progress-bar {
+  background: var(--main-green);
+  border-radius: 9px;
+}
+
+progress::-webkit-progress-value {
+  background: var(--main-green);
+  border-radius: 9px;
 }

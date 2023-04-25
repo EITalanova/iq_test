@@ -1,17 +1,30 @@
 .footer {
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 13px;
   position: absolute;
-  bottom: -4px;
+  bottom: 0px;
   width: 100%;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 7px;
-  line-height: 9px;
-
+  font-size: 10px;
+  line-height: 23px;
+  letter-spacing: 0.05em;
   text-align: center;
   letter-spacing: 3px;
   text-transform: uppercase;
 
   color: rgba(255, 255, 255, 0.5);
+
+  &__text {
+    font-size: 7px;
+    line-height: 9px;
+    position: absolute;
+    bottom: -7px;
+
+    &--scroll {
+      bottom: 0px;
+    }
+  }
 }

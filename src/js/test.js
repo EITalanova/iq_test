@@ -2,7 +2,7 @@ import {
   renderQuestionPage,
   renderQuestionHeader,
   renderLoader,
-  renderFooter
+  renderFooter,
 } from './markup';
 import { updateTimer } from './timer';
 import qu_people from '../images/qu_people.png';
@@ -199,13 +199,18 @@ function nextQuestion() {
   const headerBox = document.querySelector('.header__box');
   const footer = document.querySelector('.footer');
 
+   const questionProgress = document.querySelector('.question__progress');
+
+  questionProgress.setAttribute('max', test.questions.length);
+
   if (test.currentQuestion < test.questions.length) {
     const question = document.querySelector('.question');
-
     const answers = document.querySelector('.answer__list');
     const line = document.querySelector('.line');
-    
 
+    questionProgress.setAttribute('value', test.currentQuestion);
+
+    footer.innerHTML = '';
     if (test.questions[test.currentQuestion].picture !== 0) {
       question.innerHTML = `<p class="question__text">
       ${test.questions[test.currentQuestion].text}
@@ -279,15 +284,6 @@ function nextQuestion() {
     }
 
     test.currentQuestion += 1;
-
-    // const answersEll = document.querySelectorAll('.answer__colorEll');
-    // answerTestBtns = Array.prototype.slice.call(answersEll);
-
-    // answerTestBtns.forEach(function (ell, i) {
-    //   ell.addEventListener('click', function (e) {
-    //     Click(e.target.getAttribute('index'));
-    //   });
-    // });
   } else {
     questionContainer.innerHTML = renderLoader;
 
@@ -298,13 +294,16 @@ function nextQuestion() {
         headerBox.classList.add('header__box--result');
         questionContainer.classList.add('result__container');
         footer.innerHTML = renderFooter;
+
+        const footerText = document.querySelector('.footer__text');
+        window.addEventListener('scroll', () =>
+          footerText.classList.add('footer__text--scroll')
+        );
+
         updateTimer();
-  const callBox = document.querySelector('.result--callBox');
+        const callBox = document.querySelector('.result--callBox');
         callBox.addEventListener('click', fetchCardRequest);
-
-     
-
-      }, 2000);
+      }, 1000);
     };
     renderResultPage();
   }
