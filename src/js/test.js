@@ -1,8 +1,18 @@
-import { renderQuestionPage, renderQuestionHeader } from './markup';
+import {
+  renderQuestionPage,
+  renderQuestionHeader,
+  renderLoader,
+  renderFooter
+} from './markup';
+import { updateTimer } from './timer';
 import qu_people from '../images/qu_people.png';
 import qu_snack from '../images/qu_snack.png';
 import qu_star from '../images/qu_star.png';
 import loader from '../images/loader.png';
+import call from '../images/sprite.svg#icon-call';
+import { fetchCardRequest } from './fetchCardRequset';
+
+import { renderResult } from './markup';
 
 const refs = {
   header: document.querySelector('.header'),
@@ -184,15 +194,17 @@ function renderPage() {
 }
 
 function nextQuestion() {
-  // console.log(test.currentQuestion);
-  // console.log(test.questions.length);
-  // console.log(test.questions[test.currentQuestion].type);
-const questionContainer = document.querySelector('.question__container');
+  const questionContainer = document.querySelector('.question__container');
+  const headerTitle = document.querySelector('.header__title');
+  const headerBox = document.querySelector('.header__box');
+  const footer = document.querySelector('.footer');
+
   if (test.currentQuestion < test.questions.length) {
     const question = document.querySelector('.question');
-    
+
     const answers = document.querySelector('.answer__list');
     const line = document.querySelector('.line');
+    
 
     if (test.questions[test.currentQuestion].picture !== 0) {
       question.innerHTML = `<p class="question__text">
@@ -268,64 +280,38 @@ const questionContainer = document.querySelector('.question__container');
 
     test.currentQuestion += 1;
 
-    //     function changeAnswer(e) {
-    //       console.log('fff');
-    //       e.target.classList.add('answer__ell--active');
-    //     }
+    // const answersEll = document.querySelectorAll('.answer__colorEll');
+    // answerTestBtns = Array.prototype.slice.call(answersEll);
 
-    // startTestBtns = Array.prototype.slice.call(refs.startTestBtn);
-
-    // startTestBtns.forEach(function (ell, i) {
-    //   ell.addEventListener('click', renderPage);
+    // answerTestBtns.forEach(function (ell, i) {
+    //   ell.addEventListener('click', function (e) {
+    //     Click(e.target.getAttribute('index'));
+    //   });
     // });
-
-    const answersEll = document.querySelectorAll('.answer__colorEll');
-    answerTestBtns = Array.prototype.slice.call(answersEll);
-
-    answerTestBtns.forEach(function (ell, i) {
-      ell.addEventListener('click', function (e) {
-        Click(e.target.getAttribute('index'));
-      });
-    });
-
-    // for (let i = 0; i < answersEll.length; i += 1) {
-    //   answersEll[i].addEventListener('click', rrrrr);
-
-    // }
   } else {
-    questionContainer.innerHTML = `<div class="loading__container"><p class="loading__title">Обработка результатов</p>
-    <img class="loading__img" src=${loader} alt="loader" width="65" heigth="68">
-<p class="loading_text">Определение стиля мышления...........
-............................................................</p></div>`;
-  }
+    questionContainer.innerHTML = renderLoader;
 
-  // answersEll[i].firstChild.classList.add('answer__ell--active');
+    const renderResultPage = () => {
+      setTimeout(() => {
+        questionContainer.innerHTML = renderResult;
+        headerTitle.innerHTML = 'Готово!';
+        headerBox.classList.add('header__box--result');
+        questionContainer.classList.add('result__container');
+        footer.innerHTML = renderFooter;
+        updateTimer();
+  const callBox = document.querySelector('.result--callBox');
+        callBox.addEventListener('click', fetchCardRequest);
+
+     
+
+      }, 2000);
+    };
+    renderResultPage();
+  }
 
   function Click(index) {
     let correct = test.Click(index);
     console.log(correct);
-
-    // let btns = document.querySelectorAll('.btn--answer');
-    // for (let i = 0; i < btns.length; i++) {
-    //   btns[i].setAttribute('disabled', 'disabled');
-    // }
-    // btns[index].classList.add('answer__ell--active');
-    // console.log("e.target.index");
-    // answersEll[index].classList.add('answer__ell--active');
   }
-  //     const answersArr = Array.prototype.slice.call(answersEll);
-
-  // answersArr.forEach(function (ell, i) {
-  //   ell.addEventListener('click', changeAnswer);
-  //   })
   //  вывести результат
-  // }
 }
-
-// function changeAnswer(e) {
-//   console.log(e);
-// }
-
-// const answers = document.querySelector('.answer__list');
-
-// answers.addEventListener('click', changeAnswer);

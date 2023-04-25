@@ -7,6 +7,7 @@
   justify-content: space-around;
 
   &__container {
+    width: 100%;
     position: absolute;
     top: 0;
 
@@ -148,21 +149,21 @@
   }
 }
 
-.loading{
-&__container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 33px;
-margin-top: 10%;
-margin-bottom: auto;
-}
+.loading {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 33px;
+    margin-top: 10%;
+    margin-bottom: auto;
+  }
 
-&__img {
-animation: rotate 2s linear 0s infinite;
-animation-direction: reverse;
-}
+  &__img {
+    animation: rotate 2s linear 0s infinite;
+    animation-direction: reverse;
+  }
 }
 
 @keyframes rotate {
@@ -173,4 +174,123 @@ animation-direction: reverse;
   to {
     transform: rotate(0deg);
   }
+}
+
+.loading {
+  &__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+  }
+
+  &__text {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+  }
+}
+
+.result {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 22px;
+
+  &__container {
+    justify-content: start;
+    margin-top: 0;
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  &--title {
+    margin-bottom: 13px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  &--appeal {
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--main-green);
+  }
+  &--info {
+    margin-bottom: 2px;
+    width: 256px;
+    padding: 15px 12px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 8px;
+    line-height: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: #1c2741;
+    border-radius: 6px;
+  }
+
+  &--callTimer {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 20px;
+
+    letter-spacing: 0.1em;
+    color: var(--main-green);
+    margin-bottom: 6px;
+  }
+
+  &--callBox {
+    display: flex;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 22px;
+    padding-top: 33px;
+    padding-bottom: 33px;
+    margin-bottom: 10px;
+
+    align-items: center;
+    gap: 18px;
+
+    border: none;
+    background-color: #eb1b00;
+    border-radius: 5px;
+
+    text-align: left;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: var(--main-light);
+  }
+  
+}
+
+.card {
+  padding: 10px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.05em;
+  background-color: var(--main-light);
+  color: #eb1b00;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
 }
