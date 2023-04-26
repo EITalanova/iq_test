@@ -12,8 +12,10 @@ export function renderQuestionPage() {
        <span class="line"></span>
         <ul class="answer__list">
             <li class="answer__ell">
+            <button type="button">
                 <span class="answer__radioBtn"></span>
                 <span class="span answer__text"></span>
+                </button>
             </li>
             <li class="answer__ell">
                 <span class="answer__radioBtn"></span>

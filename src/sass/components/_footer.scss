@@ -3,7 +3,7 @@
   padding: 0 13px;
   position: absolute;
   // overflow: auto;
-    margin: auto;
+  margin: auto;
   right: 0;
   left: 0;
   bottom: 0px;
@@ -25,11 +25,11 @@
   @media screen and (min-width: $tablet) {
     width: 60%;
     font-size: 15px;
-    }
-  
-    @media screen and (min-width: $desktop) {
+  }
+
+  @media screen and (min-width: $desktop) {
     font-size: 18px;
-    }
+  }
 
   &__text {
     position: absolute;
@@ -41,11 +41,11 @@
     @media screen and (min-width: $tablet) {
       font-size: 10px;
       bottom: -14px;
-      }
-    
-      @media screen and (min-width: $desktop) {
+    }
+
+    @media screen and (min-width: $desktop) {
       font-size: 17px;
-      }
+    }
 
     &--scroll {
       bottom: 0px;

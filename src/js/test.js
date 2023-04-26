@@ -31,8 +31,42 @@ class Test {
 
   Click(index) {
     let value = this.questions[this.currentQuestion].Click(index);
-    console.log(value);
     this.score += value;
+    console.log('this.score', this.score);
+
+    let correct = -1;
+    if (value >= 1) {
+      correct = index;
+    } else {
+      for (
+        let i = 0;
+        i < this.questions[this.currentQuestion].answers.length;
+        i += 1
+      ) {
+        if (this.questions[this.currentQuestion].answers[i].value >= 1) {
+          correct = i;
+          break;
+        }
+      }
+    }
+    // this.Next();
+    return correct;
+  }
+
+  Next() {
+    this.currentQuestion += 1;
+    if (this.currentQuestion >= this.questions.length) {
+      this.End();
+    }
+  }
+
+  End() {
+    for (let i = 0; i < this.results.length; i += 1) {
+      if (this.results[i].Check(this.score)) {
+        this.result = i;
+        console.log('this.result', this.result);
+      }
+    }
   }
 }
 
@@ -62,6 +96,14 @@ class Result {
     this.text = text;
     this.value = value;
   }
+
+  Check(value) {
+    if (this.value <= value) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 const results = [
@@ -70,7 +112,7 @@ const results = [
     0
   ),
   new Result(
-    'Вы относитесь к 3% респондентов, чей уровень интеллекта более чем на 15 пунктов отличается от среднего в большую или меньшую сторону!',
+    'Вы относитесь к 333333% респондентов, чей уровень интеллекта более чем на 15 пунктов отличается от среднего в большую или меньшую сторону!',
     5
   ),
 ];
@@ -199,7 +241,7 @@ function nextQuestion() {
   const headerBox = document.querySelector('.header__box');
   const footer = document.querySelector('.footer');
 
-   const questionProgress = document.querySelector('.question__progress');
+  const questionProgress = document.querySelector('.question__progress');
 
   questionProgress.setAttribute('max', test.questions.length);
 
@@ -236,7 +278,7 @@ function nextQuestion() {
           answers.classList.remove('answer__list--numbers');
           answers.insertAdjacentHTML(
             'beforeend',
-            `<li class="answer__ell">
+            `<li class="answer__ell ell">
             <span class="answer__radioBtn"></span>
                 <span class="span answer__text">${
                   test.questions[test.currentQuestion].answers[i].text
@@ -250,7 +292,7 @@ function nextQuestion() {
           answers.classList.remove('answer__list--numbers');
           answers.insertAdjacentHTML(
             'beforeend',
-            `<li class="answer__colorEll" style="background:#${
+            `<li class="answer__colorEll ell" style="background:#${
               test.questions[test.currentQuestion].answers[i].text
             }"><button class="btn--answer"type="button"></button></li>`
           );
@@ -261,7 +303,7 @@ function nextQuestion() {
           answers.classList.add('answer__list--numbers');
           answers.insertAdjacentHTML(
             'beforeend',
-            `<li class="answer__numPic">${
+            `<li class="answer__numPic ell">${
               test.questions[test.currentQuestion].answers[i].text
             }</li>`
           );
@@ -274,7 +316,7 @@ function nextQuestion() {
 
           answers.insertAdjacentHTML(
             'beforeend',
-            `<li class="answer__numPic">${
+            `<li class="answer__numPic ell">${
               test.questions[test.currentQuestion].answers[i].text
             }</li>`
           );
@@ -284,6 +326,46 @@ function nextQuestion() {
     }
 
     test.currentQuestion += 1;
+    function Init() {
+      let answersBtn = document.querySelectorAll('.ell');
+
+      for (let i = 0; i < answersBtn.length; i += 1) {
+        answersBtn[i].addEventListener('click', function (e) {
+          console.log(i);
+
+          if (answersBtn[i].classList.contains('answer__ell')) {
+            for (let i = 0; i < answersBtn.length; i += 1) {
+              if (answersBtn[i].classList.contains('answer__ell--active')) {
+                answersBtn[i].classList.remove('answer__ell--active');
+              }
+            }
+            answersBtn[i].classList.add('answer__ell--active');
+          }
+
+          if (answersBtn[i].classList.contains('answer__colorEll')) {
+            for (let i = 0; i < answersBtn.length; i += 1) {
+              if (
+                answersBtn[i].classList.contains('answer__colorEll--active')
+              ) {
+                answersBtn[i].classList.remove('answer__colorEll--active');
+              }
+            }
+            answersBtn[i].classList.add('answer__colorEll--active');
+          }
+          if (answersBtn[i].classList.contains('answer__numPic')) {
+            for (let i = 0; i < answersBtn.length; i += 1) {
+              if (answersBtn[i].classList.contains('answer__numPic--active')) {
+                answersBtn[i].classList.remove('answer__numPic--active');
+              }
+            }
+            answersBtn[i].classList.add('answer__numPic--active');
+          }
+
+          Click(i);
+        });
+      }
+    }
+    Init();
   } else {
     questionContainer.innerHTML = renderLoader;
 
@@ -310,7 +392,7 @@ function nextQuestion() {
 
   function Click(index) {
     let correct = test.Click(index);
-    console.log(correct);
+    // console.log(correct);
   }
   //  вывести результат
 }

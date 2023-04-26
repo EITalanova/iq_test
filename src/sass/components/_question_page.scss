@@ -92,6 +92,7 @@
       gap: 21px;
       flex-direction: row;
       flex-wrap: wrap;
+      cursor: pointer;
 
       @media screen and (min-width: $tablet) {
         width: 410px;
@@ -107,13 +108,15 @@
       // min-width: 263px;
       flex-direction: row;
       justify-content: space-evenly;
+      cursor: pointer;
+
       @media screen and (min-width: $tablet) {
-          width: 600px;
-        }
-      
-        @media screen and (min-width: $desktop) {
-          width: 600px;
-        }
+        width: 600px;
+      }
+
+      @media screen and (min-width: $desktop) {
+        width: 600px;
+      }
     }
   }
 
@@ -131,6 +134,29 @@
     background-color: rgba(242, 243, 243, 0.15);
     cursor: pointer;
 
+    &--active {
+      background-color: var(--bright-yellow);
+        color: var(--main-black);
+        &>span.answer__radioBtn {
+          background-color: blue;
+            border-color: var(--main-black);
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--bright-yellow);
+      color: var(--main-black);
+    }
+
+    &:hover > span.answer__radioBtn,
+    &:focus > span.answer__radioBtn,
+    &:active > span.answer__radioBtn {
+      background-color: blue;
+      border-color: var(--main-black);
+    }
+
     @media screen and (min-width: $tablet) {
       gap: 59px;
       padding-top: 21px;
@@ -142,10 +168,6 @@
       padding-bottom: 35px;
     }
 
-    &--active {
-      background-color: var(----bright-yellow);
-      color: var(--main-black);
-    }
   }
 
   &__radioBtn {
@@ -168,6 +190,16 @@
     height: 75px;
     width: calc((100% - 42px) / 3);
 
+    &--active {
+        border: 6px solid var(--bright-yellow);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      border: 6px solid var(--bright-yellow);
+    }
+
     @media screen and (min-width: $tablet) {
       height: 100px;
       width: calc((100% - 42px) / 3);
@@ -189,6 +221,16 @@
     background-color: var(--main-light);
 
     color: var(--main-black);
+
+&--active {
+border: 6px solid var(--bright-yellow);
+}
+
+    &:hover,
+    &:focus,
+    &:active {
+      border: 6px solid var(--bright-yellow);
+    }
 
     @media screen and (min-width: $tablet) {
       width: 54px;
