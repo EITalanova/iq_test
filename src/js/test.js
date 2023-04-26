@@ -3,23 +3,19 @@ import {
   renderQuestionHeader,
   renderLoader,
   renderFooter,
+  renderResult,
 } from './markup';
 import { updateTimer } from './timer';
 import qu_people from '../images/qu_people.png';
 import qu_snack from '../images/qu_snack.png';
 import qu_star from '../images/qu_star.png';
-import loader from '../images/loader.png';
-import call from '../images/sprite.svg#icon-call';
 import { fetchCardRequest } from './fetchCardRequset';
 
-import { renderResult } from './markup';
+const header = document.querySelector('.header');
+const main = document.querySelector('.main');
+const startTestBtn = document.querySelectorAll('.btn__start');
 
-const refs = {
-  header: document.querySelector('.header'),
-  main: document.querySelector('.main'),
-  startTestBtn: document.querySelectorAll('.btn__start'),
-};
-
+//Тест
 class Test {
   constructor(questions, resuits) {
     this.questions = questions;
@@ -29,10 +25,10 @@ class Test {
     this.currentQuestion = 0;
   }
 
+  //Добавление очков
   Click(index) {
     let value = this.questions[this.currentQuestion].Click(index);
     this.score += value;
-    console.log('this.score', this.score);
 
     let correct = -1;
     if (value >= 1) {
@@ -49,10 +45,11 @@ class Test {
         }
       }
     }
-    // this.Next();
+    this.Next();
     return correct;
   }
 
+  //Переход к следующему вопросу
   Next() {
     this.currentQuestion += 1;
     if (this.currentQuestion >= this.questions.length) {
@@ -60,16 +57,17 @@ class Test {
     }
   }
 
+  //Получение результата
   End() {
     for (let i = 0; i < this.results.length; i += 1) {
       if (this.results[i].Check(this.score)) {
         this.result = i;
-        console.log('this.result', this.result);
       }
     }
   }
 }
 
+//Вопросы теста
 class Question {
   constructor(type, text, picture, answers) {
     this.type = type;
@@ -79,11 +77,11 @@ class Question {
   }
 
   Click(index) {
-    console.log(this.answers[index]);
     return this.answers[index].value;
   }
 }
 
+//Ответы теста
 class Answer {
   constructor(text, value) {
     this.text = text;
@@ -91,12 +89,14 @@ class Answer {
   }
 }
 
+//Результаты теста
 class Result {
   constructor(text, value) {
     this.text = text;
     this.value = value;
   }
 
+  //Проверка очков для получения результата
   Check(value) {
     if (this.value <= value) {
       return true;
@@ -106,17 +106,19 @@ class Result {
   }
 }
 
+//Массив с результатами
 const results = [
   new Result(
     'Вы относитесь к 3% респондентов, чей уровень интеллекта более чем на 15 пунктов отличается от среднего в большую или меньшую сторону!',
     0
   ),
   new Result(
-    'Вы относитесь к 333333% респондентов, чей уровень интеллекта более чем на 15 пунктов отличается от среднего в большую или меньшую сторону!',
-    5
+    'Вы относитесь к 3% респондентов, чей уровень интеллекта более чем на 15 пунктов отличается от среднего в большую или меньшую сторону!',
+    30
   ),
 ];
 
+//Массив с вопросами и ответами
 const questions = [
   new Question('text', 'Ваш пол:', 0, [
     new Answer('Мужчина', 1),
@@ -219,40 +221,51 @@ const questions = [
   ]),
 ];
 
+//Создание теста
 const test = new Test(questions, results);
 
-startTestBtns = Array.prototype.slice.call(refs.startTestBtn);
-
-startTestBtns.forEach(function (ell, i) {
-  ell.addEventListener('click', renderPage);
-});
-
-function renderPage() {
-  refs.header.insertAdjacentHTML('afterbegin', renderQuestionHeader);
-  refs.main.innerHTML = renderQuestionPage;
-  nextQuestion();
-  const nextQuestionBtn = document.querySelector('.btn');
-  nextQuestionBtn.addEventListener('click', nextQuestion);
+//Слушатели на кнопки запуска теста
+for (let i = 0; i < startTestBtn.length; i += 1) {
+  startTestBtn[i].addEventListener('click', renderPage);
 }
 
+//Рендер страницы с вопросом
+function renderPage() {
+  header.insertAdjacentHTML('afterbegin', renderQuestionHeader);
+  main.innerHTML = renderQuestionPage;
+  nextQuestion();
+
+  //Возможность загрузки следующего вопроса, если выбран хоть один вариант
+  const nextQuestionBtn = document.querySelector('.btn');
+  nextQuestionBtn.addEventListener('click', () => {
+    if (nextQuestionBtn.classList.contains('btn--no-active')) {
+      return;
+    }
+    nextQuestion();
+  });
+}
+
+//Функция загрузки следующего вопроса
 function nextQuestion() {
   const questionContainer = document.querySelector('.question__container');
   const headerTitle = document.querySelector('.header__title');
   const headerBox = document.querySelector('.header__box');
   const footer = document.querySelector('.footer');
-
+  const nextQuestionBtn = document.querySelector('.btn');
   const questionProgress = document.querySelector('.question__progress');
+  const question = document.querySelector('.question');
+  const answers = document.querySelector('.answer__list');
+  const line = document.querySelector('.line');
 
+  //Данные для строки прогресса
   questionProgress.setAttribute('max', test.questions.length);
 
   if (test.currentQuestion < test.questions.length) {
-    const question = document.querySelector('.question');
-    const answers = document.querySelector('.answer__list');
-    const line = document.querySelector('.line');
-
     questionProgress.setAttribute('value', test.currentQuestion);
 
     footer.innerHTML = '';
+
+    //Рендер текста вопроса в зависимости от наличия картинки в нем
     if (test.questions[test.currentQuestion].picture !== 0) {
       question.innerHTML = `<p class="question__text">
       ${test.questions[test.currentQuestion].text}
@@ -265,6 +278,8 @@ function nextQuestion() {
         test.questions[test.currentQuestion].text
       }</p>`;
     }
+
+    //Рендер вариантов ответов в зависимости от типа вопроса (текст, список, цветов, числа и т.д.)
     answers.innerHTML = '';
 
     for (
@@ -320,19 +335,18 @@ function nextQuestion() {
               test.questions[test.currentQuestion].answers[i].text
             }</li>`
           );
-
           break;
       }
     }
 
-    test.currentQuestion += 1;
+    nextQuestionBtn.classList.add('btn--no-active');
+
+    //Функция выбора и стилизации ответов
     function Init() {
       let answersBtn = document.querySelectorAll('.ell');
 
       for (let i = 0; i < answersBtn.length; i += 1) {
         answersBtn[i].addEventListener('click', function (e) {
-          console.log(i);
-
           if (answersBtn[i].classList.contains('answer__ell')) {
             for (let i = 0; i < answersBtn.length; i += 1) {
               if (answersBtn[i].classList.contains('answer__ell--active')) {
@@ -360,29 +374,38 @@ function nextQuestion() {
             }
             answersBtn[i].classList.add('answer__numPic--active');
           }
-
+          nextQuestionBtn.classList.remove('btn--no-active');
           Click(i);
         });
       }
     }
     Init();
   } else {
+    //Загрузка лоудера до результата
     questionContainer.innerHTML = renderLoader;
 
+    //Загрузка результата теста
     const renderResultPage = () => {
       setTimeout(() => {
         questionContainer.innerHTML = renderResult;
+
+        const result = document.querySelector('.result');
+        result.innerHTML = test.results[test.result].text;
         headerTitle.innerHTML = 'Готово!';
         headerBox.classList.add('header__box--result');
         questionContainer.classList.add('result__container');
         footer.innerHTML = renderFooter;
 
+        //Установка слушателя на скрол для футера
         const footerText = document.querySelector('.footer__text');
         window.addEventListener('scroll', () =>
           footerText.classList.add('footer__text--scroll')
         );
 
+        //Запуск тамера
         updateTimer();
+
+        //Установка слушателя на кнопку звонка для запроса к API
         const callBox = document.querySelector('.result--callBox');
         callBox.addEventListener('click', fetchCardRequest);
       }, 1000);
@@ -392,7 +415,5 @@ function nextQuestion() {
 
   function Click(index) {
     let correct = test.Click(index);
-    // console.log(correct);
   }
-  //  вывести результат
 }

@@ -101,6 +101,10 @@ body {
   text-transform: uppercase;
   color: var(--btn-black);
 
+  // &--active {
+
+  // }
+
   @media screen and (min-width: $tablet) {
       width: 230px;
         height: 50px;

@@ -9,7 +9,6 @@ const menuCloseBtn = document.querySelector('.menu__btn-close');
 const menuLink = document.querySelector('.menu__list');
 
 const toggleMenu = () => {
-  console.log('click');
   burgerMenu.classList.toggle('invisible');
 };
 

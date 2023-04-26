@@ -136,11 +136,11 @@
 
     &--active {
       background-color: var(--bright-yellow);
-        color: var(--main-black);
-        &>span.answer__radioBtn {
-          background-color: blue;
-            border-color: var(--main-black);
-        }
+      color: var(--main-black);
+      & > span.answer__radioBtn {
+        background-color: blue;
+        border-color: var(--main-black);
+      }
     }
 
     &:hover,
@@ -167,7 +167,6 @@
       padding-top: 35px;
       padding-bottom: 35px;
     }
-
   }
 
   &__radioBtn {
@@ -191,7 +190,7 @@
     width: calc((100% - 42px) / 3);
 
     &--active {
-        border: 6px solid var(--bright-yellow);
+      border: 6px solid var(--bright-yellow);
     }
 
     &:hover,
@@ -222,9 +221,9 @@
 
     color: var(--main-black);
 
-&--active {
-border: 6px solid var(--bright-yellow);
-}
+    &--active {
+      border: 6px solid var(--bright-yellow);
+    }
 
     &:hover,
     &:focus,
@@ -255,83 +254,7 @@ border: 6px solid var(--bright-yellow);
   }
 }
 
-.loading {
-  &__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 33px;
-    margin-top: 10%;
-    margin-bottom: auto;
 
-    @media screen and (min-width: $tablet) {
-      gap: 55px;
-    }
-
-    @media screen and (min-width: $desktop) {
-      gap: 70px;
-    }
-  }
-
-  &__img {
-    animation: rotate 2s linear 0s infinite;
-    animation-direction: reverse;
-    @media screen and (min-width: $tablet) {
-      width: 100px;
-    }
-
-    @media screen and (min-width: $desktop) {
-      width: 200px;
-    }
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
-
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-.loading {
-  &__title {
-    font-family: 'PT Serif';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 23px;
-    line-height: 1.3;
-    letter-spacing: 0.05em;
-
-    @media screen and (min-width: $tablet) {
-      font-size: 35px;
-    }
-
-    @media screen and (min-width: $desktop) {
-      font-size: 40px;
-    }
-  }
-
-  &__text {
-    font-family: 'PT Serif';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.36;
-    letter-spacing: 0.05em;
-
-    @media screen and (min-width: $tablet) {
-      font-size: 25px;
-    }
-
-    @media screen and (min-width: $desktop) {
-      font-size: 35px;
-    }
-  }
-}
 
 .result {
   font-weight: 400;
