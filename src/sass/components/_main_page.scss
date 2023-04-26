@@ -1,40 +1,68 @@
 .main-page {
   &__hero {
-    min-height: 568px;
-    // position: relative;
-    // top: 46px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
+    height: 100vh;
     padding: 73px 17px 0 17px;
 
     background-image: url(../images/rain_brain.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media screen and (min-width: $tablet) {
+      padding-top: 73px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding-top: 120px;
+    }
   }
 
   &__text {
     font-weight: 400;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.3;
     letter-spacing: 0.05em;
+
     color: var(--main-light);
+
+    // @media screen and (min-width: $tablet) {
+    //   font-size: 28px;
+    //   margin-bottom: 20px;
+    // }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 38px;
+    }
+
     &--yellow {
       color: var(--main-yellow);
     }
   }
 
   &__title {
+    width: 252px;
     margin-top: 13px;
-    margin-bottom: 150px;
+
     font-weight: 400;
     font-size: 30px;
-    line-height: 35px;
+    line-height: 1.17;
     letter-spacing: 0.03em;
     text-transform: uppercase;
 
     color: var(--main-yellow);
+
+    @media screen and (min-width: $tablet) {
+     width: 100vw;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 45px;
+    }
   }
 
   &__btn {
@@ -44,16 +72,36 @@
     align-items: center;
     margin-bottom: 11px;
     margin-top: 11px;
+
+    // @media screen and (min-width: $tablet) {
+    //   margin-bottom: 30px;
+    //   margin-top: 30px;
+    // }
+
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 50px;
+      margin-top: 50px;
+    }
   }
 
   &__btn-text {
     margin-top: 3px;
+
     font-weight: 400;
     font-size: 8px;
-    line-height: 11px;
+    line-height: 1.4;
     text-align: center;
     letter-spacing: 0.05em;
+
     color: var(--main-light);
+
+    // @media screen and (min-width: $tablet) {
+    //   font-size: 18px;
+    // }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 22px;
+    }
   }
 
   &__discription {
@@ -64,13 +112,12 @@
     font-family: 'Yeseva One', serif;
     font-weight: 400;
     font-size: 18px;
-    line-height: 25px;
+    line-height: 1.4;
 
     text-align: center;
     letter-spacing: 0.05em;
 
     color: var(--main-light);
-
     background: radial-gradient(
         84.34% 50.29% at 48.75% 49.71%,
         #2950c2 0%,
@@ -81,6 +128,20 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 500px;
+      padding-top: 50px;
+      font-size: 26px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      height: 600px;
+      font-size: 32px;
+    }
   }
 
   &__quotation-mark {
@@ -88,12 +149,28 @@
     left: 24px;
     top: 43px;
 
+    @media screen and (min-width: $tablet) {
+      left: 30%;
+    }
+
+    @media screen and (min-width: $desktop) {
+      left: 30%;
+    }
+
     &--reverse {
       position: absolute;
       right: 29px;
       bottom: 33px;
       z-index: 1;
       transform: rotate(-180deg);
+
+      @media screen and (min-width: $tablet) {
+        right: 30%;
+      }
+
+      @media screen and (min-width: $desktop) {
+        font-size: 22px;
+      }
     }
   }
 
@@ -103,15 +180,32 @@
     justify-content: center;
     align-items: flex-start;
     padding: 40px 11px;
+
     background-color: var(--main-light);
+
+    @media screen and (min-width: $tablet) {
+      padding-left: 22px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding-left: 32px;
+    }
   }
 
   &__details-text {
     font-family: 'Merriweather', serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5;
     letter-spacing: 0.05em;
+
+    @media screen and (min-width: $tablet) {
+      font-size: 26px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 32px;
+    }
 
     &--upper {
       text-transform: uppercase;
@@ -121,24 +215,30 @@
       font-weight: 700;
     }
     &--yellow {
-      color: var(--main-yellow);
       font-weight: 700;
+      color: var(--main-yellow);
     }
 
     &--white {
       color: var(--main-light);
+      @media screen and (min-width: $tablet) {
+        font-size: 26px;
+      }
+
+      @media screen and (min-width: $desktop) {
+        font-size: 32px;
+      }
     }
   }
   &__text-box {
     width: 100%;
-
     padding: 30px 15px;
     margin-top: 14px;
     margin-bottom: 33px;
+    z-index: 1;
 
     background: rgba(243, 243, 242, 0.8);
     border-radius: 20px;
-    z-index: 1;
   }
 
   &__img-brain {
@@ -155,6 +255,7 @@
     justify-content: center;
     align-items: flex-start;
     padding: 56px 12px 86px 12px;
+
     background-image: url(../images/rain_sky.png);
 
     &-img1 {

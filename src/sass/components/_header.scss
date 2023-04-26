@@ -1,8 +1,7 @@
 .header {
   position: absolute;
-  display: flex;
   top: 0;
-
+  display: flex;
   align-items: center;
   height: 46px;
   width: 100%;
@@ -10,12 +9,30 @@
 
   color: var(--bright-yellow);
   background-color: var(--main-grey);
+  
+  @media screen and (min-width: $tablet) {
+      height: 66px;
+    }
+  
+    @media screen and (min-width: $desktop) {
+      height: 86px;
+    }
 
   &__btn {
     position: absolute;
     top: 17px;
     left: 15px;
     z-index: 99;
+
+    @media screen and (min-width: $tablet) {
+       top: 26;
+        left: 26px;
+      }
+    
+      @media screen and (min-width: $desktop) {
+        top: 38;
+        left: 38px;
+      }
   }
 
   &__img {
@@ -25,18 +42,33 @@
   &__box {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    // justify-content: space-around;
+    justify-content: start;
+      gap: 22px;
     padding-right: 30px;
     padding-left: 48px;
     align-items: center;
     z-index: 24;
     position: relative;
+
     font-weight: 400;
     font-size: 12px;
-    line-height: 14px;
+    line-height: 1.17;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #ffc700;
+
+    @media screen and (min-width: $tablet) {
+      justify-content: center;
+      gap: 32px;
+        font-size: 22px;
+      }
+    
+      @media screen and (min-width: $desktop) {
+        justify-content: center;
+        gap: 52px;
+        font-size: 30px;
+      }
 
     &--result {
       font-size: 20px;

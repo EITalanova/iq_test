@@ -5,14 +5,9 @@ import call from '../images/call.png';
 export function renderQuestionPage() {
    return `
 <div class="question__container">
-
     <progress class="question__progress" max="0" value="0"></progress>
-
- 
         <div class="question">
-  
             <p class="question__text"></p>
-            
         </div>
        <span class="line"></span>
         <ul class="answer__list">
@@ -25,26 +20,21 @@ export function renderQuestionPage() {
                 <span class="span answer__text">Женщина</span>
             </li>
         </ul>
- 
-
     <button type="button" class="btn btn--no-active a btn--next">
         <p class="btn-text">далее</p>
     </button>
- 
-   
 </div>`};
 
 export const renderQuestionHeader = `  <div class="header__box">
   <img src="${blue_brain}" alt="blue_brain" class="header__pic" width="48" height="47">
   <p class="header__title">тест на определение IQ
-
 </p>
 </div>`;
 
 export const renderLoader = `<div class="loading__container"><p class="loading__title">Обработка </br> результатов</p>
     <img class="loading__img" src=${loader} alt="loader" width="65" heigth="68">
-<p class="loading_text">Определение стиля мышления...........
-...........................................................</p></div>`;
+<p class="loading__text">Определение стиля мышления...........</br>
+..........................................................</p></div>`;
 
 export const renderResult = ` <p class="result--title">Ваш результат рассчитан:</p>
 <p class="result">Вы относитесь к 3% респондентов, чей уровень интеллекта более чем на 
@@ -72,8 +62,8 @@ export function renderRequestCard(people) {
   <p class="card__name">${people.name}</p>
   <ul class="card__list">
     <li class="card__item">🧍‍♂/🧍‍♀: ${people.gender}</li>
-    <li class="card__item">⚖️: ${people.height}</li>
-    <li class="card__item">📏: ${people.mass}</li>
+    <li class="card__item">📏: ${people.height}</li>
+    <li class="card__item">⚖️: ${people.mass}</li>
     <li class="card__item">👁: ${people.skin_color}</li>
   </ul>
   </div>`;

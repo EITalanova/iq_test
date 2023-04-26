@@ -1,14 +1,25 @@
 .menu {
   position: fixed;
+  padding-top: 110px;
+  padding-left: 23px;
+  height: 100%;
   width: 100%;
   top: 0;
   right: 0;
   z-index: 100;
-  padding-top: 110px;
-  padding-left: 23px;
-  height: 100%;
+
   color: var(--main-light);
   background-color: var(--main-black);
+
+  @media screen and (min-width: $tablet) {
+      padding-top: 180px;
+        padding-left: 53px;
+    }
+  
+    @media screen and (min-width: $desktop) {
+    padding-top: 230px;
+      padding-left: 73px;
+    }
 
   &__svg-close {
     position: absolute;
@@ -20,15 +31,30 @@
     display: flex;
     flex-direction: column;
     gap: 27px;
+
+    @media screen and (min-width: $tablet) {
+        gap: 46px;
+      }
+    
+      @media screen and (min-width: $desktop) {
+        gap: 56px;
+      }
   }
 
   &__item {
     font-weight: 300;
     font-size: 16px;
-    line-height: 22px;
+    line-height: 1.4;
     text-transform: uppercase;
-
     color: var(--main-light);
+
+    @media screen and (min-width: $tablet) {
+      font-size: 26px;
+      }
+    
+      @media screen and (min-width: $desktop) {
+      font-size: 36px;
+      }
   }
   &--active {
     color: var(--main-yellow);
