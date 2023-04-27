@@ -269,8 +269,7 @@ function nextQuestion() {
     if (test.questions[test.currentQuestion].picture !== 0) {
       question.innerHTML = `<p class="question__text">
       ${test.questions[test.currentQuestion].text}
-      </p>
-      <img class="question__img" src=${
+      </p><img class="question__img" src=${
         test.questions[test.currentQuestion].picture
       } alt="pic">`;
     } else {
