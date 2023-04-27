@@ -2,17 +2,16 @@ import blue_brain from '../images/blue_brain.png';
 import loader from '../images/loader.png';
 import call from '../images/call.png';
 
-export function renderQuestionPage() {
-  return `<div class="question__container"><progress class="question__progress" max="0" value="0"></progress><div class="question"><p class="question__text"></p></div><span class="line"></span><ul class="answer__list">
-            <li class="answer__ell">
-                <span class="answer__radioBtn"></span>
-                <span class="span answer__text"></span>
-            </li>
-            <li class="answer__ell">
-                <span class="answer__radioBtn"></span>
-                <span class="span answer__text">Женщина</span>
-            </li>
-        </ul><button type="button" class="btn btn--no-active a btn--next"><p class="btn-text">далее</p></button></div>`;}
+export const renderQuestionPage = `<div class="question__container"><progress class="question__progress" max="0" value="0"></progress><div class="question"><p class="question__text"></p></div><span class="line"></span><ul class="answer__list">
+<li class="answer__ell">
+    <span class="answer__radioBtn"></span>
+    <span class="span answer__text"></span>
+</li>
+<li class="answer__ell">
+    <span class="answer__radioBtn"></span>
+    <span class="span answer__text">Женщина</span>
+</li>
+</ul><button type="button" class="btn btn--no-active a btn--next"><p class="btn-text">далее</p></button></div>`;
 
 export const renderQuestionHeader = `<div class="header__box">
   <img src="${blue_brain}" alt="blue_brain" class="header__pic" width="48" height="47">
@@ -46,29 +45,15 @@ export const renderResult = ` <p class="result--title">Ваш результат
 
 export const renderFooter = `<p class="footer__text">TERMENI SI CONDITII: ACESTA ESTE UN SERVICIU DE DIVERTISMENT. PRIN FOLOSIREA LUI DECLARATI CA AVETI 18 ANI IMPLINITI, </p>`;
 
-export function renderRequestCard(people) {
-  return `<div class="card"> 
-  <p class="card__name">${people.name}</p>
-  <ul class="card__list">
-    <li class="card__item">🧍‍♂/🧍‍♀: ${people.gender}</li>
-    <li class="card__item">📏: ${people.height}</li>
-    <li class="card__item">⚖️: ${people.mass}</li>
-    <li class="card__item">👁: ${people.skin_color}</li>
-  </ul>
-  </div>`;
-}
-
-export function renderMainPage() {
-  return `<section>
+export const renderMainPage = `<section>
   <div id="main" class="main-page__hero">
-
+    <div class="main-page__titleBox">
     <p class="main-page__text">Пройдите точный и быстрый</p>
-
     <h1 class="main-page__title">
-      тест на <br />
-      определение <br />
-      IQ
+      тест на определение IQ
     </h1>
+    </div>
+    <div class="main-page__box">
     <button class="btn btn__start">пРойти тест</button>
     <p class="main-page__text">
       и получите рекомендации <br />по развитию своего интеллекта
@@ -82,6 +67,7 @@ export function renderMainPage() {
       </svg>
       <p class="main-page__btn-text">Подробнее</p>
     </a>
+    </div>
   </div>
 
   <div id="info" class="main-page__discription">
@@ -139,4 +125,15 @@ export function renderMainPage() {
   </div>
 </section>
 `;
+
+export function renderRequestCard(people) {
+  return `<div class="card"> 
+  <p class="card__name">${people.name}</p>
+  <ul class="card__list">
+    <li class="card__item">🧍‍♂/🧍‍♀: ${people.gender}</li>
+    <li class="card__item">📏: ${people.height}</li>
+    <li class="card__item">⚖️: ${people.mass}</li>
+    <li class="card__item">👁: ${people.skin_color}</li>
+  </ul>
+  </div>`;
 }

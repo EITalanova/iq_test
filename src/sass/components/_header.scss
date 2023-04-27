@@ -9,14 +9,14 @@
 
   color: var(--bright-yellow);
   background-color: var(--main-grey);
-  
+
   @media screen and (min-width: $tablet) {
-      height: 66px;
-    }
-  
-    @media screen and (min-width: $desktop) {
-      height: 86px;
-    }
+    height: 66px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    height: 86px;
+  }
 
   &__btn {
     position: absolute;
@@ -25,14 +25,14 @@
     z-index: 99;
 
     @media screen and (min-width: $tablet) {
-       top: 26;
-        left: 26px;
-      }
-    
-      @media screen and (min-width: $desktop) {
-        top: 38;
-        left: 38px;
-      }
+      top: 26;
+      left: 26px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      top: 38;
+      left: 38px;
+    }
   }
 
   &__img {
@@ -44,7 +44,7 @@
     width: 100%;
     // justify-content: space-around;
     justify-content: start;
-      gap: 22px;
+    gap: 22px;
     padding-right: 30px;
     padding-left: 48px;
     align-items: center;
@@ -61,14 +61,14 @@
     @media screen and (min-width: $tablet) {
       justify-content: center;
       gap: 32px;
-        font-size: 22px;
-      }
-    
-      @media screen and (min-width: $desktop) {
-        justify-content: center;
-        gap: 52px;
-        font-size: 30px;
-      }
+      font-size: 22px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      justify-content: center;
+      gap: 52px;
+      font-size: 30px;
+    }
 
     &--result {
       font-size: 20px;
@@ -76,5 +76,4 @@
       letter-spacing: 0.1em;
     }
   }
-
 }

@@ -12,14 +12,14 @@
   background-color: var(--main-black);
 
   @media screen and (min-width: $tablet) {
-      padding-top: 180px;
-        padding-left: 53px;
-    }
-  
-    @media screen and (min-width: $desktop) {
+    padding-top: 180px;
+    padding-left: 53px;
+  }
+
+  @media screen and (min-width: $desktop) {
     padding-top: 230px;
-      padding-left: 73px;
-    }
+    padding-left: 73px;
+  }
 
   &__svg-close {
     position: absolute;
@@ -33,12 +33,12 @@
     gap: 27px;
 
     @media screen and (min-width: $tablet) {
-        gap: 46px;
-      }
-    
-      @media screen and (min-width: $desktop) {
-        gap: 56px;
-      }
+      gap: 46px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      gap: 56px;
+    }
   }
 
   &__item {
@@ -50,11 +50,11 @@
 
     @media screen and (min-width: $tablet) {
       font-size: 26px;
-      }
-    
-      @media screen and (min-width: $desktop) {
+    }
+
+    @media screen and (min-width: $desktop) {
       font-size: 36px;
-      }
+    }
   }
   &--active {
     color: var(--main-yellow);
