@@ -3,12 +3,7 @@ import loader from '../images/loader.png';
 import call from '../images/call.png';
 
 export function renderQuestionPage() {
-   return `
-<div class="question__container">
-    <progress class="question__progress" max="0" value="0"></progress>
-        <div class="question">
-            <p class="question__text"></p>
-        </div>
+   return `<div class="question__container"><progress class="question__progress" max="0" value="0"></progress><div class="question"><p class="question__text"></p></div>
        <span class="line"></span>
         <ul class="answer__list">
             <li class="answer__ell">
@@ -21,8 +16,7 @@ export function renderQuestionPage() {
                 <span class="answer__radioBtn"></span>
                 <span class="span answer__text">Женщина</span>
             </li>
-        </ul><button type="button" class="btn btn--no-active a btn--next"><p class="btn-text">далее</p></button>
-</div>`};
+        </ul><button type="button" class="btn btn--no-active a btn--next"><p class="btn-text">далее</p></button></div>`};
 
 export const renderQuestionHeader = `  <div class="header__box">
   <img src="${blue_brain}" alt="blue_brain" class="header__pic" width="48" height="47">
