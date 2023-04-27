@@ -101,23 +101,12 @@ body {
   text-transform: uppercase;
   color: var(--btn-black);
 
-  // &--active {
-
-  // }
-
   @media screen and (min-width: $tablet) {
       width: 230px;
         height: 50px;
         border-radius: 40px;
         font-size: 18px;
     }
-  
-    // @media screen and (min-width: $desktop) {
-    // width: 290px;
-    //   height: 60px;
-    //   border-radius: 40px;
-    //   font-size: 20px;
-    // }
 
   &--black {
     border: var(--main-light) 1px solid;
@@ -126,37 +115,14 @@ body {
   }
 
   &--no-active {
+    justify-content: end;
     background-color: #dadada;
     color: rgba(142, 142, 142, 1);
     box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
-
-    // margin-top: auto;
-    // margin-bottom: 0;
-    justify-content: end;
+    
   }
 
 &--next {
   margin: 0;
 }
 }
-
-// main {
-//     flex: 1 1 auto;
-// }
-
-// .container {
-//     margin: 0 auto;
-//     padding: 0 16px;
-
-//     @media screen and (min-width: $mobile) {
-//         max-width: $mobile;
-//     }
-
-//     @media screen and (min-width: $tablet) {
-//         max-width: $tablet;
-//     }
-
-//     @media screen and (min-width: $desktop) {
-//         max-width: $desktop;
-//     }
-// }

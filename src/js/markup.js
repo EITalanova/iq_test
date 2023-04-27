@@ -21,10 +21,7 @@ export function renderQuestionPage() {
                 <span class="answer__radioBtn"></span>
                 <span class="span answer__text">Женщина</span>
             </li>
-        </ul>
-    <button type="button" class="btn btn--no-active a btn--next">
-        <p class="btn-text">далее</p>
-    </button>
+        </ul><button type="button" class="btn btn--no-active a btn--next"><p class="btn-text">далее</p></button>
 </div>`};
 
 export const renderQuestionHeader = `  <div class="header__box">
